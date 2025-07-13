@@ -17,7 +17,7 @@ variable "public_key" {
 variable "db_username" {
   description = "RDS username"
   type        = string
-  default     = "admin"
+  default     = "capstone_admin"
 }
 
 variable "db_password" {

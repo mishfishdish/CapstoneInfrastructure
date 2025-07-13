@@ -1,7 +1,7 @@
 resource "aws_db_instance" "postgres" {
   allocated_storage      = 20
   engine                 = "postgres"
-  engine_version         = "14.9"
+  engine_version         = "14.12"
   instance_class         = "db.t3.micro"
   db_name                = "capstonedb"
   username               = var.db_username

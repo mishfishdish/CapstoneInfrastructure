@@ -26,6 +26,10 @@ resource "aws_security_group" "frontend_sg" {
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
+
+  lifecycle {
+    ignore_changes = [name]
+  }
 }
 
 resource "aws_security_group" "backend_sg" {
@@ -52,6 +56,10 @@ resource "aws_security_group" "backend_sg" {
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
+
+  lifecycle {
+    ignore_changes = [name]
+  }
 }
 
 resource "aws_security_group" "rds_sg" {
@@ -70,5 +78,9 @@ resource "aws_security_group" "rds_sg" {
     to_port     = 0
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  lifecycle {
+    ignore_changes = [name]
   }
 }

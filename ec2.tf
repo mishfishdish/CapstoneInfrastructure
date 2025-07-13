@@ -1,6 +1,7 @@
 resource "aws_key_pair" "deployer" {
-  key_name   = var.key_name # must match the existing key name
+  key_name   = var.key_name
   public_key = var.public_key
+
   lifecycle {
     ignore_changes = [public_key]
   }
@@ -8,10 +9,18 @@ resource "aws_key_pair" "deployer" {
 
 resource "aws_eip" "frontend_ip" {
   instance = aws_instance.frontend.id
+
+  lifecycle {
+    prevent_destroy = true
+  }
 }
 
 resource "aws_eip" "backend_ip" {
   instance = aws_instance.backend.id
+
+  lifecycle {
+    prevent_destroy = true
+  }
 }
 
 resource "aws_instance" "frontend" {
@@ -31,6 +40,10 @@ resource "aws_instance" "frontend" {
   tags = {
     Name = "FrontendServer"
   }
+
+  lifecycle {
+    ignore_changes = [ami, user_data]
+  }
 }
 
 resource "aws_instance" "backend" {
@@ -49,5 +62,9 @@ resource "aws_instance" "backend" {
 
   tags = {
     Name = "BackendServer"
+  }
+
+  lifecycle {
+    ignore_changes = [ami, user_data]
   }
 }

@@ -8,9 +8,10 @@ variable "key_name" {
   type        = string
 }
 
-variable "public_key_path" {
-  description = "Path to public key for EC2"
+variable "public_key" {
+  description = "Public key string for EC2 key pair"
   type        = string
+  sensitive   = true
 }
 
 variable "db_username" {

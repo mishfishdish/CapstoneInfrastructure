@@ -31,3 +31,7 @@ variable "duckdns_token" {
   type        = string
   sensitive   = true
 }
+
+
+
+

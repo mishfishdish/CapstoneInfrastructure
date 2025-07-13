@@ -3,7 +3,7 @@ resource "aws_db_instance" "postgres" {
   engine                 = "postgres"
   engine_version         = "15.3"
   instance_class         = "db.t3.micro"
-  db_name                   = "capstonedb"
+  db_name                = "capstonedb"
   username               = var.db_username
   password               = var.db_password
   publicly_accessible    = false

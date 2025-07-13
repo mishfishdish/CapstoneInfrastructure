@@ -17,3 +17,12 @@ output "frontend_url" {
 output "backend_url" {
   value = "http://backend.capstoneapp.com"
 }
+
+output "frontend_ec2_private_key" {
+  value     = tls_private_key.ec2.private_key_pem
+  sensitive = true
+}
+
+output "frontend_ec2_public_key" {
+  value     = tls_private_key.ec2.public_key_openssh
+}

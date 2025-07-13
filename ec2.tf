@@ -12,10 +12,10 @@ resource "aws_eip" "backend_ip" {
 }
 
 resource "aws_instance" "frontend" {
-  ami                         = "ami-0cfd0973db26b893b"
-  instance_type               = "t2.micro"
-  key_name                    = var.key_name
-  vpc_security_group_ids      = [aws_security_group.frontend_sg.id]
+  ami                    = "ami-0cfd0973db26b893b"
+  instance_type          = "t2.micro"
+  key_name               = var.key_name
+  vpc_security_group_ids = [aws_security_group.frontend_sg.id]
 
   user_data = <<-EOF
               #!/bin/bash
@@ -31,10 +31,10 @@ resource "aws_instance" "frontend" {
 }
 
 resource "aws_instance" "backend" {
-  ami                         = "ami-0cfd0973db26b893b"
-  instance_type               = "t2.micro"
-  key_name                    = var.key_name
-  vpc_security_group_ids      = [aws_security_group.backend_sg.id]
+  ami                    = "ami-0cfd0973db26b893b"
+  instance_type          = "t2.micro"
+  key_name               = var.key_name
+  vpc_security_group_ids = [aws_security_group.backend_sg.id]
 
   user_data = <<-EOF
               #!/bin/bash

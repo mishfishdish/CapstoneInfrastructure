@@ -24,5 +24,5 @@ output "frontend_ec2_private_key" {
 }
 
 output "frontend_ec2_public_key" {
-  value     = tls_private_key.ec2.public_key_openssh
+  value = tls_private_key.ec2.public_key_openssh
 }
